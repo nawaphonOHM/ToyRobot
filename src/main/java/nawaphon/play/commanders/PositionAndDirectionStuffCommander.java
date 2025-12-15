@@ -70,4 +70,8 @@ public class PositionAndDirectionStuffCommander {
 
 
     }
+
+    public SimplePair<Position, DirectionNode> getCurrentInformation() {
+        return new SimplePair<>(positionModule, currentDirection);
+    }
 }
