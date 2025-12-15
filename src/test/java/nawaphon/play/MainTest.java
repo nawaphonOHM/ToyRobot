@@ -81,6 +81,25 @@ class MainTest {
 
     @Test
     public void testSetC() {
+        final var input = new StringJoiner("\n", "", "\n");
 
+        input.add("PLACE 1,2,EAST")
+                .add("MOVE")
+                .add("MOVE")
+                .add("LEFT")
+                .add("MOVE")
+                .add("REPORT");
+
+        final var mockSystemIn = input.toString();
+
+        System.setIn(new ByteArrayInputStream(mockSystemIn.getBytes(StandardCharsets.UTF_8)));
+
+        Main.main(new String[]{});
+
+        final var output = outputStreamCaptor.toString().split("\n");
+
+        assertEquals(2, output.length);
+        assertEquals("Welcome to the Toy Robot!", output[0]);
+        assertEquals("Output: 3,3,NORTH", output[1]);
     }
 }
