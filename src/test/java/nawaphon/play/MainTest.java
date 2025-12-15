@@ -57,4 +57,8 @@ class MainTest {
         assertEquals("Output: 0,1,NORTH", output[1]);
 
     }
+
+    @Test
+    public void testSetB() {
+    }
 }
