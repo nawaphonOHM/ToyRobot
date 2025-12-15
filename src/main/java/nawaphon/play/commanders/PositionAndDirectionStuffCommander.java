@@ -4,6 +4,7 @@ package nawaphon.play.commanders;
 import nawaphon.play.enums.Direction;
 import nawaphon.play.pojos.DirectionNode;
 import nawaphon.play.pojos.Position;
+import nawaphon.play.pojos.SimplePair;
 import org.jetbrains.annotations.Contract;
 import org.jspecify.annotations.NonNull;
 
@@ -16,8 +17,13 @@ public class PositionAndDirectionStuffCommander {
     private int moveXDirection = 0;
     private int moveYDirection = 0;
 
-    public PositionAndDirectionStuffCommander(Position positionModule) {
-        this.positionModule = positionModule;
+    public PositionAndDirectionStuffCommander(@NonNull SimplePair<Position, DirectionNode> currentInformation) {
+        final var initialDirection = currentInformation.right();
+
+        this.positionModule = currentInformation.left();
+        this.currentDirection = initialDirection;
+
+        computeMoveXAndMoveY(initialDirection.getDirection());
     }
 
     @Contract(mutates = "this")
