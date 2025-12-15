@@ -11,6 +11,7 @@ public class PositionAndDirectionStuffCommander {
     private DirectionNode currentDirection;
 
     private int moveXDirection = 0;
+    private int moveYDirection = 0;
 
     public PositionAndDirectionStuffCommander(Position positionModule) {
         this.positionModule = positionModule;
