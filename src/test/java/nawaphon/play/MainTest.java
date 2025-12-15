@@ -78,4 +78,9 @@ class MainTest {
         assertEquals("Welcome to the Toy Robot!", output[0]);
         assertEquals("Output: 0,0,WEST", output[1]);
     }
+
+    @Test
+    public void testSetC() {
+
+    }
 }
