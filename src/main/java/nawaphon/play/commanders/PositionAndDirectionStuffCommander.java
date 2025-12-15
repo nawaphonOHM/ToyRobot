@@ -49,4 +49,12 @@ public class PositionAndDirectionStuffCommander {
         }
 
     }
+
+    public void move() {
+        final var validX = Math.min(5, Math.max(0, positionModule.getX() + moveXDirection));
+        final var validY = Math.min(5, Math.max(0, positionModule.getY() + moveYDirection));
+
+        positionModule.setX(validX);
+        positionModule.setY(validY);
+    }
 }
