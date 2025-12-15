@@ -17,5 +17,9 @@ class MainTest {
 
     @BeforeEach
     void setUp() {
+
+        outputStreamCaptor = new ByteArrayOutputStream();
+
+        System.setOut(new PrintStream(outputStreamCaptor));
     }
 }
