@@ -26,6 +26,7 @@ class MainTest {
 
     @AfterEach
     public void tearDown() {
-
+        System.setIn(originalSystemIn);
+        System.setOut(originalSystemOut);
     }
 }
