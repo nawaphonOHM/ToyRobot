@@ -1,5 +1,6 @@
 package nawaphon.play;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.io.ByteArrayOutputStream;
@@ -21,5 +22,10 @@ class MainTest {
         outputStreamCaptor = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    @AfterEach
+    public void tearDown() {
+
     }
 }
