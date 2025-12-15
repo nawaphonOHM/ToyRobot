@@ -2,6 +2,7 @@ package nawaphon.play.commanders;
 
 
 import nawaphon.play.enums.Direction;
+import nawaphon.play.enums.Turn;
 import nawaphon.play.pojos.DirectionNode;
 import nawaphon.play.pojos.Position;
 import nawaphon.play.pojos.SimplePair;
@@ -56,5 +57,17 @@ public class PositionAndDirectionStuffCommander {
 
         positionModule.setX(validX);
         positionModule.setY(validY);
+    }
+
+    public void turn(@NonNull Turn where) {
+
+        switch (where) {
+            case LEFT -> currentDirection = currentDirection.getLeft();
+            case RIGHT -> currentDirection = currentDirection.getRight();
+        }
+
+        computeMoveXAndMoveY(currentDirection.getDirection());
+
+
     }
 }
