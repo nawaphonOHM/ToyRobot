@@ -18,6 +18,12 @@ run {
     standardInput = System.in
 }
 
+java {
+    toolchain {
+        it.languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 dependencies {
 
     implementation 'org.jspecify:jspecify:1.0.0'
