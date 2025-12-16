@@ -27,6 +27,10 @@ public class Main {
 
             final var input = scanner.nextLine();
 
+            if (input.equals("REPORT")) {
+                break;
+            }
+
             if (!isInitialized) {
                 try {
                     final var result = UntilCommander.findAndSetPosition(input);
@@ -61,10 +65,6 @@ public class Main {
 
                 continue;
 
-            }
-
-            if (input.equals("REPORT")) {
-                break;
             }
 
         }
