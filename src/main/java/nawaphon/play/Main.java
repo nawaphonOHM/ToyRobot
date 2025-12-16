@@ -23,7 +23,7 @@ public class Main {
         final var scanner = new Scanner(System.in);
 
 
-        while (true) {
+        while (scanner.hasNext()) {
 
             final var input = scanner.nextLine();
 
