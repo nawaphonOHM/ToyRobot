@@ -31,6 +31,20 @@ public class Main {
                 break;
             }
 
+            if (input.equals("MOVE") && isInitialized) {
+                commander.move();
+
+                continue;
+            }
+
+            if ((input.equals("LEFT") || input.equals("RIGHT")) && isInitialized) {
+
+                commander.turn(Turn.valueOf(input));
+
+                continue;
+
+            }
+
             if (!isInitialized) {
                 try {
                     final var result = UntilCommander.findAndSetPosition(input);
@@ -51,20 +65,6 @@ public class Main {
                 }
 
                 continue;
-            }
-
-            if (input.equals("MOVE")) {
-                commander.move();
-
-                continue;
-            }
-
-            if (input.equals("LEFT") || input.equals("RIGHT")) {
-
-                commander.turn(Turn.valueOf(input));
-
-                continue;
-
             }
 
         }
