@@ -69,6 +69,11 @@ public class Main {
 
         }
 
+        if (!isInitialized) {
+            System.out.printf("Output: --NO INFORMATION--%n");
+            return;
+        }
+
         final var current = commander.getCurrentInformation();
 
         System.out.printf("Output: %d,%d,%s%n",
