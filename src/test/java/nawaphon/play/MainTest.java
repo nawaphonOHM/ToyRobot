@@ -102,4 +102,9 @@ class MainTest {
         assertEquals("Welcome to the Toy Robot!", output[0]);
         assertEquals("Output: 3,3,NORTH", output[1]);
     }
+
+    @Test
+    public void testSetD() {
+
+    }
 }
