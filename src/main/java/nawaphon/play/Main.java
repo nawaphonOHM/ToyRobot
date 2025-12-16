@@ -6,6 +6,7 @@ import nawaphon.play.commanders.UntilCommander;
 import nawaphon.play.enums.Turn;
 import nawaphon.play.exceptions.InitializePositionIncorrectException;
 import nawaphon.play.exceptions.PlaceCommandNotFoundException;
+import nawaphon.play.exceptions.RobotHasBeenPlacedException;
 import nawaphon.play.pojos.SimplePair;
 
 import java.util.Scanner;
@@ -45,26 +46,26 @@ public class Main {
 
             }
 
-            if (!isInitialized) {
-                try {
-                    final var result = UntilCommander.findAndSetPosition(input);
+            try {
+                final var result = UntilCommander.findAndSetPosition(input);
 
-                    commander = new PositionAndDirectionStuffCommander(
-
-                            new SimplePair<>(
-                                    result.left(),
-                                    UntilCommander.makeDirectionGraphAndReturnInitialDirection(result.right())
-                            )
-
-                    );
-
-                    isInitialized = true;
-
-                } catch (PlaceCommandNotFoundException | InitializePositionIncorrectException e) {
-                    System.err.println(e.getMessage());
+                if (isInitialized) {
+                    throw new RobotHasBeenPlacedException();
                 }
 
-                continue;
+                commander = new PositionAndDirectionStuffCommander(
+
+                        new SimplePair<>(
+                                result.left(),
+                                UntilCommander.makeDirectionGraphAndReturnInitialDirection(result.right())
+                        )
+
+                );
+
+                isInitialized = true;
+
+            } catch (RobotHasBeenPlacedException | PlaceCommandNotFoundException | InitializePositionIncorrectException e) {
+                System.err.println(e.getMessage());
             }
 
         }
