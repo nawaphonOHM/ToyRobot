@@ -105,6 +105,20 @@ class MainTest {
 
     @Test
     public void testSetD() {
+        final var input = new StringJoiner("\n", "", "\n");
 
+        input.add("REPORT");
+
+        final var mockSystemIn = input.toString();
+
+        System.setIn(new ByteArrayInputStream(mockSystemIn.getBytes(StandardCharsets.UTF_8)));
+
+        Main.main(new String[]{});
+
+        final var output = outputStreamCaptor.toString().split("\n");
+
+        assertEquals(2, output.length);
+        assertEquals("Welcome to the Toy Robot!", output[0]);
+        assertEquals("Output: --NO INFORMATION--", output[1]);
     }
 }
